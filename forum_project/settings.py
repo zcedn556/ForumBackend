@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Discussion',
     'rest_framework',
-
+    'User',
 ]
 
 MIDDLEWARE = [
