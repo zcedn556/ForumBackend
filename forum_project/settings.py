@@ -40,12 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Discussion',
     'rest_framework',
-<<<<<<< HEAD
     'User',
-=======
     "corsheaders",
-
->>>>>>> dev
 ]
 
 MIDDLEWARE = [
