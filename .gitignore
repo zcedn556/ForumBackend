@@ -1,14 +1,3 @@
-Discussion/__pycache__/__init__.cpython-314.pyc
-Discussion/__pycache__/admin.cpython-314.pyc
-Discussion/__pycache__/apps.cpython-314.pyc
-Discussion/__pycache__/models.cpython-314.pyc
-Discussion/__pycache__/serializators.cpython-314.pyc
-Discussion/__pycache__/urls.cpython-314.pyc
-Discussion/__pycache__/views.cpython-314.pyc
-Discussion/migrations/__pycache__/__init__.cpython-314.pyc
-Discussion/migrations/__pycache__/0001_initial.cpython-314.pyc
-Discussion/migrations/__pycache__/0002_rename_datetimeofcreation_comment_creationdate_and_more.cpython-314.pyc
-forum_project/__pycache__/__init__.cpython-314.pyc
-forum_project/__pycache__/settings.cpython-314.pyc
-forum_project/__pycache__/urls.cpython-314.pyc
-forum_project/__pycache__/wsgi.cpython-314.pyc
+Discussion/__pycache__/
+forum_project/__pycache__/
+.venv
