@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.decorators import action
 from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.response import Response
 
 
 from .models import Discussion, Comment,Community
@@ -12,13 +13,25 @@ class CRUD_Discussion(ModelViewSet):
     serializer_class = DiscussionSerializer
     parser_classes = [MultiPartParser, FormParser]
 
+    @action(methods=['GET'], detail=True)
+    def get_by_id(self,request,pk):
+        comments = Comment.objects.filter(discussion_id = pk)
+        serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data)
+   
 class CRUD_Comment(ModelViewSet):
-    queryset = Comment.objects.all()
+    queryset = Comment.objects.all()    
     serializer_class = CommentSerializer
 
-class CRUD_Community(ModelViewSet):
+class CRUD_Community(ModelViewSet): 
     queryset = Community.objects.all()
     serializer_class = CommunitySerializer
+
+    @action(methods=['GET'], detail=True)
+    def get_by_id(self,request,pk):
+        discussions = Discussion.objects.filter(communityId_id = pk)
+        serializer = DiscussionSerializer(discussions, many=True)
+        return Response(serializer.data)
 
 
         
