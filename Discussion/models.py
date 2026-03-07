@@ -3,6 +3,7 @@ from django.db import models
 class Community(models.Model):
     name = models.CharField(max_length=30)
     creationDate = models.DateTimeField(auto_now_add=True)
+    imageUrl = models.ImageField(upload_to='communities/', null=True, blank=True)
 
 class Discussion(models.Model):
     theme = models.CharField(max_length=150)
