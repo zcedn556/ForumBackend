@@ -3,7 +3,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.decorators import action
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from .models import Discussion, Comment,Community
 from .serializators import DiscussionSerializer, CommentSerializer, CommunitySerializer
@@ -19,6 +19,11 @@ class CRUD_Discussion(ModelViewSet):
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
     
+    def get_permissions(self):
+        if self.action == "create":
+            return [IsAuthenticated()]
+        return [AllowAny()]
+    
     
    
 class CRUD_Comment(ModelViewSet):
@@ -26,6 +31,11 @@ class CRUD_Comment(ModelViewSet):
     serializer_class = CommentSerializer
 
     permission_classes = [IsAuthenticated]
+
+    def get_permissions(self):
+        if self.action == "create":
+            return [IsAuthenticated()]
+        return [AllowAny()]
 
 class CRUD_Community(ModelViewSet): 
     queryset = Community.objects.all()
@@ -36,6 +46,11 @@ class CRUD_Community(ModelViewSet):
         discussions = Discussion.objects.filter(communityId_id = pk)
         serializer = DiscussionSerializer(discussions, many=True)
         return Response(serializer.data)
+    
+    def get_permissions(self):
+        if self.action == "create":
+            return [IsAuthenticated()]
+        return [AllowAny()]
 
 
         
